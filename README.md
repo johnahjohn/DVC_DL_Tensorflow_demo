@@ -1,11 +1,14 @@
 # DVC - DL - TF
 #download data --> source
 
-### commands -
+# commands -
 
 create a new env
+
 conda create --prefix ./env python=3.7 -y
+
 activate new env
+
 source activate ./env
 
 
