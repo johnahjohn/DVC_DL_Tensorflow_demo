@@ -1,6 +1,5 @@
 from src.utils.all_utils import read_yaml, create_directory
-# from src.utils.models import get_VGG_16_model, prepare_model
-from src.utils.models import get_VGG_16_model
+from src.utils.models import get_VGG_16_model, prepare_model
 import argparse
 import os
 import logging
@@ -42,7 +41,7 @@ def prepare_base_model(config_path, params_path):
         base_model_dir_path,
         artifacts["UPDATED_BASE_MODEL_NAME"]
     )
-
+# saving the full_model into our logs
     def _log_model_summary(full_model):
         with io.StringIO() as stream:
             full_model.summary(print_fn=lambda x: stream.write(f"{x}\n"))
