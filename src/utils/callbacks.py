@@ -30,16 +30,16 @@ def create_and_save_checkpoint_callback(callbacks_dir, checkpoint_dir):
     logging.info(f"tensorboard callback is being saved at {ckpt_callback_filepath}")
 
 
-# def get_callbacks(callback_dir_path):
+def get_callbacks(callback_dir_path):
+#why ends with .cb is given is gitignore files also can be read in that list of callback path
+    callback_path = [
+        os.path.join(callback_dir_path, bin_file) for bin_file in os.listdir(callback_dir_path) if bin_file.endswith(".cb")
+    ]
 
-#     callback_path = [
-#         os.path.join(callback_dir_path, bin_file) for bin_file in os.listdir(callback_dir_path) if bin_file.endswith(".cb")
-#     ]
+    callbacks = [
+        joblib.load(path) for path in callback_path
+    ]
 
-#     callbacks = [
-#         joblib.load(path) for path in callback_path
-#     ]
+    logging.info(f"saved callbacks are loaded from {callback_dir_path}")
 
-#     logging.info(f"saved callbacks are loaded from {callback_dir_path}")
-
-#     return callbacks
+    return callbacks
