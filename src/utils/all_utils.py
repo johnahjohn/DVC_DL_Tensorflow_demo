@@ -1,3 +1,4 @@
+#this is a generic file or common file
 import yaml
 import os
 import json
@@ -27,6 +28,6 @@ def save_reports(report: dict, report_path: str, indentation=4):
     logging.info(f"reports are saved at {report_path}")
 
 def get_timestamp(name):
-    timestamp = time.asctime().replace(" ", "_").replace(":", "_")
+    timestamp = time.asctime().replace(" ", "_").replace(":", "_")#why replace is normal asc time has space in between and some secial characters. so to avoid these
     unique_name = f"{name}_at_{timestamp}"
     return unique_name
