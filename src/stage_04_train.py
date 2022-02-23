@@ -37,6 +37,7 @@ def train_model(config_path, params_path):
         do_data_augmentation=params["AUGMENTATION"]
     )
     #after this we will be creating a file named data management
+
     steps_per_epoch = train_generator.samples // train_generator.batch_size
     validation_steps = valid_generator.samples // valid_generator.batch_size
 
@@ -50,6 +51,7 @@ def train_model(config_path, params_path):
     )
     logging.info(f"training completed")
 
+    #saving the model
     trained_model_dir = os.path.join(artifacts_dir, artifacts["TRAINED_MODEL_DIR"])
     create_directory([trained_model_dir])
 
